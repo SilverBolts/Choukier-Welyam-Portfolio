@@ -8,9 +8,6 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "resolutions": {
-    "rollup": "npm:@rollup/wasm-node"
-  },
   "devDependencies": {
     "events": "^3.3.0",
     "gsap": "^3.12.5",
