@@ -11,6 +11,11 @@ export default class Theme extends EventEmitter {
         this.setEventListeners();
 
     }
+    updateAriaLabels() {
+        // dynamic changing aria-label value depending on the theme
+        const themeLabel = this.theme === "light" ? "Activate dark theme" : "Activate light theme";
+        this.toggleButton.setAttribute('aria-label', themeLabel);
+    }
 
     setEventListeners() {
         this.toggleButton.addEventListener("click", () => {

@@ -10,7 +10,7 @@ export default class Environment {
         this.scene = this.experience.scene;
 
 
-         // this.gui = new GUI({ container: document.querySelector( '.hero-main' ) });
+          this.gui = new GUI({ container: document.querySelector( '.hero-main' ) });
         this.obj = {
          colorObj: { r: 0, g: 0, b: 0 },
          intensity: 3,
@@ -18,7 +18,7 @@ export default class Environment {
 
 
         this.setSunlight();
-      // this.setGUI();  
+       this.setGUI();  
      }
      setGUI() {
       this.gui.addColor(this.obj, "colorObj").onChange(() => {
@@ -52,7 +52,7 @@ export default class Environment {
         
      }
      switchTheme(theme) {
-      // console.log(this.sunLight);
+       console.log(this.sunLight);
       if(theme === "dark") {
          GSAP.to(this.sunLight.color,{
             r: 0.4549019607843137,

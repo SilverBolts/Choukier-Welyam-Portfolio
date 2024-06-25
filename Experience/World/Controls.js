@@ -3,6 +3,7 @@ import Experience from "../Experience.js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "/node_modules/gsap/ScrollTrigger.js";
 
+
 export default class Controls {
     constructor() {
         this.experience = new Experience();
@@ -14,11 +15,11 @@ export default class Controls {
         this.room = this.experience.world.room;
         gsap.registerPlugin(ScrollTrigger);
 
-        this.setScrollTrigger();
+        this.setPath();
 
 }
-
-    setScrollTrigger(){
+setPath() {}
+     setScrollTrigger(){
         ScrollTrigger.matchMedia({
             //desktop
             "(min-width: 969px)": () => {
@@ -35,12 +36,12 @@ export default class Controls {
                         invalidateOnRefresh: false,
                     },
                 });
-                this.firstMoveTimeline.to(
-                    this.room, { 
-                        x: () => {
-                            return this.sizes.width * 0.0014;
-                        },
-                     });
+                 this.firstMoveTimeline.to(
+                     this.room, { 
+                         x: () => {
+                             return this.sizes.width * 0.0014;
+                         },
+                      });
 
                      //second section -------------------
                      this.secondMoveTimeline = new gsap.timeline({
@@ -49,10 +50,10 @@ export default class Controls {
                             start: "top top",
                             end: "bottom bottom",
                             scrub: 0.6,
-                            invalidateOnRefresh: false,
+                            invalidateOnRefresh: true,
                         },
                     });
-                    this.firstMoveTimeline.to(
+                    this.secondMoveTimeline.to(
                         this.room, { 
                             x: () => {
                                 return 1
